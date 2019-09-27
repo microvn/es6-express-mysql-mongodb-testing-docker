@@ -1,0 +1,6 @@
+sequelize-auto -o "./models" -d admin -h localhost -u username_mysql -x password_mysql -e mysql
+rs.initiate({"_id":"rs0","members":[{"_id":0,"host":"mongodb:27017"},{"_id":1,"host":"mongodbrlc1:27017"},{"_id":2,"host":"mongodbrlc2:27017"}]})
+mongodump --db admin --username root --password --authenticationDatabase admin --out <path output>
+mongorestore --db nameDatabase --username userName --password password --authenticationDatabase admin <path backup> --drop
+rs.freeze(120) -> 1 second db
+rs.stepDown(120) -> down primary another
